@@ -2,6 +2,6 @@
 #include <opencv2/highgui.hpp>
 
 class Frame {
-    cv::Mat image;
-    int boundingBox[];
+    public:
+    Frame(cv::Mat image, int x, int y, int width, int height);
 };

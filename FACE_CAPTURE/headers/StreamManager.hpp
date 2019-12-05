@@ -4,10 +4,12 @@
 
 class StreamManager{
     public:
+    bool running;
     bool openStream();
     void start(rs2::pipeline, bool);
     cv::Mat frame;
     void closeStream();
     void analyze(cv::Mat);
-    cv::Mat saveFrame();
+    void validFrame(cv::Mat, int x, int y, int width, int height, int frameID);
+    int frameID;
 };
