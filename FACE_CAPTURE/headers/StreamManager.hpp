@@ -5,7 +5,7 @@
 class StreamManager{
     public:
     bool openStream();
-    void start(rs2::pipeline);
+    void start(rs2::pipeline, bool);
     cv::Mat frame;
     void closeStream();
     void analyze(cv::Mat);
