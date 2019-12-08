@@ -5,10 +5,13 @@
 #include "headers/Frame.hpp"
 #include <stdlib.h>
 #include <unistd.h>
+#include <chrono>
+#include <thread>
+using namespace std::this_thread;
+using namespace std::chrono;
 
 
-bool StreamManager::openStream(){
-
+void StreamManager::openStream(){
     this->frameID = 0;
 
     rs2::pipeline pipe; /// Construct a pipeline to abstract the device
@@ -23,8 +26,7 @@ bool StreamManager::openStream(){
     this->start(pipe, this->running); /// Start camera streaming
 
     this->running = true;
-
-    return true;
+    //return true;
 
 }
 
@@ -73,25 +75,36 @@ void StreamManager::analyze(cv::Mat frame){
     faceDetection.detectMultiScale(frame, faces); /// Detecting faces
 
     /* Drawing bounding box */
-    for(int i = 0; i < faces.size(); i++){
-        cv::Point pt1(faces[i].x, faces[i].y);
-        cv::Point pt2(faces[i].x + faces[i].height, faces[i].y + faces[i].width);
+    //for(int i = 0; i < faces.size(); i++){
+        cv::Point pt1(faces[0].x, faces[0].y);
+        cv::Point pt2(faces[0].x + faces[0].height, faces[0].y + faces[0].width);
         cv::rectangle(frame, pt1, pt2, cv::Scalar(0, 0, 255), 2, 8, 0);
-        if(faces[i].height > 100){
-            //validFrame(frame, faces[i].x, faces[i].y, faces[i].width, faces[i].height, this->frameID);
-            closeStream();
+        if(faces[0].height > 200){
+            ok = true;
+            pauseStream();
+            validX = faces[0].x;
+            validY = faces[0].y;
+            validW = faces[0].width;
+            validH = faces[0].height;
         }
         //std::cout<< "Detected face size : " << faces[i].height << std::endl;
+    //}
+}
+
+
+
+void StreamManager::pauseStream(){
+    running = false;
+    //cv::destroyAllWindows();
+    while(ok){
+        break;
+    }
+
+    if(!ok){
+        running = true;
     }
 }
 
-void StreamManager::validFrame(cv::Mat validFrame, int x, int y, int width, int height, int frameID){
-
-    //Frame *frame = new Frame(validFrame, x, y, width, height);
-
-}
-
-void StreamManager::closeStream(){
-    running = false;
-    cv::destroyAllWindows();
+void StreamManager::frameSaved(){
+    ok = false;
 }
