@@ -17,7 +17,7 @@ void Core::streamInit(){
     if(stmManager.ok){
         imgProcessor.crop(stmManager.frame, stmManager.validX, stmManager.validY, stmManager.validW, stmManager.validH);
         std::cout << "Processing frame..." << std::endl;
-        imgProcessor.save(imgProcessor.frame, "home/gaston/sambashare/Visage/visage.jpg");
+        imgProcessor.save(imgProcessor.frame, "output/visage.jpg");
         stmManager.frameSaved();
     }
     

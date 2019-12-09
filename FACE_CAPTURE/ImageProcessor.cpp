@@ -10,8 +10,10 @@ void ImageProcessor::crop(cv::Mat fullFrame, int x, int y, int width, int height
         return;
     }
 
+    //y = y + y * 0.15;
+    //height = height + height * 0.15;
+
     frame = fullFrame(cv::Rect(x, y, width, height));
-    
 }
 
 void ImageProcessor::save(cv::Mat frame, std::string savePath){
@@ -20,9 +22,13 @@ void ImageProcessor::save(cv::Mat frame, std::string savePath){
         std::cout << "Error : Image processor - cropped image not loaded" << std::endl;
         return;
     }
+    else
+    {
+        cv::imwrite(savePath, frame);
+        std::cout << "Image Processor - Frame saved" << std::endl;
+    }
 
-    cv::imwrite(savePath, frame);
-    std::cout << "Image Processor - Frame saved" << std::endl;
+    
 }
 
 void ImageProcessor::archive(std::string sourcePath, int frameHistory){}
