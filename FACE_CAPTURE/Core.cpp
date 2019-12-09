@@ -10,20 +10,15 @@ void Core::run(){
 }
 
 void Core::streamInit(){
-    StreamManager *stmManager = new StreamManager;
-    ImageProcessor *imgProcessor = new ImageProcessor;
-    imgProcessor->frameHistory = 0;
-    Frame *validFrame = new Frame;
-    stmManager->openStream();
-    if(stmManager->ok){
-    std::cout << "Processing frame..." << std::endl;
-         validFrame->frame = stmManager->frame;
-         validFrame->x = stmManager->validX;
-         validFrame->y = stmManager->validY;
-         validFrame->width = stmManager->validW;
-         validFrame->height = stmManager->validH;
-         imgProcessor->save(imgProcessor->crop(validFrame->frame, validFrame->x, validFrame->y, validFrame->width, validFrame->height), "/home/gaston/sambashare/Visage/visage.jpg");
-         stmManager->frameSaved();
+    StreamManager stmManager;
+    ImageProcessor imgProcessor;
+    imgProcessor.frameHistory = 0;
+    stmManager.openStream();
+    if(stmManager.ok){
+        imgProcessor.crop(stmManager.frame, stmManager.validX, stmManager.validY, stmManager.validW, stmManager.validH);
+        std::cout << "Processing frame..." << std::endl;
+        imgProcessor.save(imgProcessor.frame, "home/gaston/sambashare/Visage/visage.jpg");
+        stmManager.frameSaved();
     }
     
 }

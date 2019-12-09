@@ -4,7 +4,7 @@
 
 int main(int argc, char** argv){
     Core *core = new Core;
-    std::cout << "Hello" << std::endl;
+    //std::cout << "Hello" << std::endl;
     while(core->isRunning){
         core->run();
     }

@@ -12,7 +12,7 @@ using namespace std::chrono;
 
 
 void StreamManager::openStream(){
-    this->frameID = 0;
+    //frameID = 0;
 
     rs2::pipeline pipe; /// Construct a pipeline to abstract the device
 
@@ -21,11 +21,11 @@ void StreamManager::openStream(){
 
     pipe.start(cfg); /// Pipeline starts streaming
 
-    cv::namedWindow("Display Image", cv::WINDOW_AUTOSIZE ); /// Window construction
+    //cv::namedWindow("Display Image", cv::WINDOW_AUTOSIZE ); /// Window construction
 
-    this->start(pipe, this->running); /// Start camera streaming
+    start(pipe, running); /// Start camera streaming
 
-    this->running = true;
+    running = true;
     //return true;
 
 }
@@ -48,14 +48,16 @@ void StreamManager::start(rs2::pipeline pipe, bool open){
         rs2::frame color_frame = frames.get_color_frame();
 
         cv::Mat color(cv::Size(640, 360), CV_8UC3, (void*)color_frame.get_data(), cv::Mat::AUTO_STEP); // Constructing an OpenCV Mat out of the color frame
-        this->frame = color;
 
-        analyze(this->frame); /// Analyzing frame
+        if(color.data){
+            frame = color;
+            analyze(frame);
+        }
+         /// Analyzing frame
         
-        cv::imshow("Display Image", this->frame); /// Displaying frame
+        //cv::imshow("Display Image", frame); /// Displaying frame
         cv::waitKey(1);
 
-        this->frameID ++;
         //std::cout << "\n -----------------";
     }
 }
@@ -67,26 +69,34 @@ void StreamManager::analyze(cv::Mat frame){
 
     /* Loading a model */
     if(!faceDetection.load("/home/gaston/Desktop/CRP/FACE_CAPTURE/datas/haarcascade_frontalface_default.xml")){
-        std::cout << "\n Model is not loaded" << std::endl;
+        std::cout << "Error : Stream Manager - Model is not loaded" << std::endl;
         exit(0);
     }
 
     std::vector<cv::Rect> faces;
+
+    if(!frame.data){
+        std::cout<< "Error : Stream Manager - Frame to be analyzed is not loaded" << std::endl;
+        return;
+    }
+
     faceDetection.detectMultiScale(frame, faces); /// Detecting faces
 
     /* Drawing bounding box */
     //for(int i = 0; i < faces.size(); i++){
-        cv::Point pt1(faces[0].x, faces[0].y);
-        cv::Point pt2(faces[0].x + faces[0].height, faces[0].y + faces[0].width);
-        cv::rectangle(frame, pt1, pt2, cv::Scalar(0, 0, 255), 2, 8, 0);
-        if(faces[0].height > 200){
-            ok = true;
-            pauseStream();
-            validX = faces[0].x;
-            validY = faces[0].y;
-            validW = faces[0].width;
-            validH = faces[0].height;
-        }
+    cv::Point pt1(faces[0].x, faces[0].y);
+    cv::Point pt2(faces[0].x + faces[0].height, faces[0].y + faces[0].width);
+
+
+        //cv::rectangle(frame, pt1, pt2, cv::Scalar(0, 0, 255), 2, 8, 0);
+    if(faces[0].height > 200){
+        ok = true;
+        pauseStream();
+        validX = faces[0].x;
+        validY = faces[0].y;
+        validW = faces[0].width;
+        validH = faces[0].height;
+    }
         //std::cout<< "Detected face size : " << faces[i].height << std::endl;
     //}
 }
@@ -95,10 +105,6 @@ void StreamManager::analyze(cv::Mat frame){
 
 void StreamManager::pauseStream(){
     running = false;
-    //cv::destroyAllWindows();
-    while(ok){
-        break;
-    }
 
     if(!ok){
         running = true;

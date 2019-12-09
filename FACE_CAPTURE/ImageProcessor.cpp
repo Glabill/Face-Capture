@@ -3,12 +3,26 @@
 #include "headers/Frame.hpp"
 #include "headers/Core.hpp"
 
-cv::Mat ImageProcessor::crop(cv::Mat fullFrame, int x, int y, int width, int height){
-    return fullFrame(cv::Rect(x, y, width, height));
+void ImageProcessor::crop(cv::Mat fullFrame, int x, int y, int width, int height){
+
+    if(!fullFrame.data){
+        std::cout << "Error : Image processor - source image not loaded" << std::endl;
+        return;
+    }
+
+    frame = fullFrame(cv::Rect(x, y, width, height));
+    
 }
 
 void ImageProcessor::save(cv::Mat frame, std::string savePath){
+
+    if(!frame.data){
+        std::cout << "Error : Image processor - cropped image not loaded" << std::endl;
+        return;
+    }
+
     cv::imwrite(savePath, frame);
+    std::cout << "Image Processor - Frame saved" << std::endl;
 }
 
 void ImageProcessor::archive(std::string sourcePath, int frameHistory){}

@@ -3,6 +3,7 @@
 
 class Frame {
     public :
+    
     cv::Mat frame;
     int x;
     int y;

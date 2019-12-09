@@ -8,8 +8,8 @@ RSCONF=-lrealsense2
 
 all : final
 
-final : main.o Core.o StreamManager.o ImageProcessor.o Frame.o
-	$(CC) main.o StreamManager.o ImageProcessor.o Core.o Frame.o $(RSCONF) -o final $(CONFIG) 
+final : main.o Core.o StreamManager.o ImageProcessor.o
+	$(CC) main.o StreamManager.o ImageProcessor.o Core.o $(RSCONF) -o final $(CONFIG) 
 
 main.o : main.cpp
 	$(CC) $(CFLAGS) main.cpp
@@ -22,9 +22,6 @@ StreamManager.o : StreamManager.cpp
 
 ImageProcessor.o : ImageProcessor.cpp
 	$(CC) $(CFLAGS) ImageProcessor.cpp
-
-Frame.o : Frame.cpp
-	$(CC) $(CFLAGS) Frame.cpp
 
 cleanAll :
 	rm -rf *o final
