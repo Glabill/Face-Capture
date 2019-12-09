@@ -4,7 +4,7 @@
 
 class StreamManager{
     public:
-    
+
     void openStream();
     void start(rs2::pipeline, bool);
     void pauseStream();
@@ -19,4 +19,7 @@ class StreamManager{
     int validY;
     int validW;
     int validH;
+
+    int capWidth;
+    int capHeight;
 };

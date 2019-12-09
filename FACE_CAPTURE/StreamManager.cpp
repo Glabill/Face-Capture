@@ -2,22 +2,19 @@
 #include <librealsense2/rs.hpp>
 #include <opencv2/opencv.hpp>
 #include <opencv2/imgproc.hpp>
-#include "headers/Frame.hpp"
 #include <stdlib.h>
 #include <unistd.h>
-#include <chrono>
-#include <thread>
-using namespace std::this_thread;
-using namespace std::chrono;
-
 
 void StreamManager::openStream(){
+
+    capWidth = 640;
+    capHeight = 360;
     //frameID = 0;
 
     rs2::pipeline pipe; /// Construct a pipeline to abstract the device
 
     rs2::config cfg; /// Create a configuration for the pipeline (non-default profile)
-    cfg.enable_stream(RS2_STREAM_COLOR, 640, 360, RS2_FORMAT_BGR8, 30);
+    cfg.enable_stream(RS2_STREAM_COLOR, capWidth, capHeight, RS2_FORMAT_BGR8, 30);
 
     pipe.start(cfg); /// Pipeline starts streaming
 
@@ -26,8 +23,6 @@ void StreamManager::openStream(){
     start(pipe, running); /// Start camera streaming
 
     running = true;
-    //return true;
-
 }
 
 void StreamManager::start(rs2::pipeline pipe, bool open){
@@ -47,7 +42,7 @@ void StreamManager::start(rs2::pipeline pipe, bool open){
         frames = pipe.wait_for_frames(); /// Get color frame from realsense pipeline
         rs2::frame color_frame = frames.get_color_frame();
 
-        cv::Mat color(cv::Size(640, 360), CV_8UC3, (void*)color_frame.get_data(), cv::Mat::AUTO_STEP); // Constructing an OpenCV Mat out of the color frame
+        cv::Mat color(cv::Size(capWidth, capHeight), CV_8UC3, (void*)color_frame.get_data(), cv::Mat::AUTO_STEP); // Constructing an OpenCV Mat out of the color frame
 
         if(color.data){
             frame = color;
@@ -84,18 +79,26 @@ void StreamManager::analyze(cv::Mat frame){
 
     /* Drawing bounding box */
     //for(int i = 0; i < faces.size(); i++){
-    cv::Point pt1(faces[0].x, faces[0].y);
-    cv::Point pt2(faces[0].x + faces[0].height, faces[0].y + faces[0].width);
+    cv::Point pt1(faces[0].x, faces[0].y); /// Detected face top left corner face
+    cv::Point pt2(faces[0].x + faces[0].height, faces[0].y + faces[0].width); /// Detected face bottom right corner
 
-
-        //cv::rectangle(frame, pt1, pt2, cv::Scalar(0, 0, 255), 2, 8, 0);
-    if(faces[0].height > 200){
+    if(pt1.x < 0 || pt2.x > capWidth || pt1.y < 0 || pt2.y > capHeight){
+        std::cout << "Warning : Stream Manager - Captured face is not totally inside the frame" << std::endl;
+        return;
+    }
+    //cv::rectangle(frame, pt1, pt2, cv::Scalar(0, 0, 255), 2, 8, 0);
+    else if(faces[0].height > 200){
         ok = true;
         pauseStream();
         validX = faces[0].x;
         validY = faces[0].y;
         validW = faces[0].width;
         validH = faces[0].height;
+    }
+    
+    else
+    {
+        return;
     }
         //std::cout<< "Detected face size : " << faces[i].height << std::endl;
     //}
