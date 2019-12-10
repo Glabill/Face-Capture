@@ -10,10 +10,11 @@ void ImageProcessor::crop(cv::Mat fullFrame, int x, int y, int width, int height
         return;
     }
 
+    /* Enlarging bounding box to the entire face */
     y = y - height * 0.3;
     height = height + height * 0.5;
 
-    frame = fullFrame(cv::Rect(x, y, width, height));
+    frame = fullFrame(cv::Rect(x, y, width, height)); /// Cropping the current frame
 }
 
 void ImageProcessor::save(cv::Mat frame, std::string savePath){
@@ -24,11 +25,9 @@ void ImageProcessor::save(cv::Mat frame, std::string savePath){
     }
     else
     {
-        cv::imwrite(savePath, frame);
+        cv::imwrite(savePath, frame); /// Saving the cropped frame
         std::cout << "Image Processor - Frame saved" << std::endl;
-    }
-
-    
+    }    
 }
 
 void ImageProcessor::archive(std::string sourcePath, int frameHistory){}

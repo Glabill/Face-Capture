@@ -3,7 +3,9 @@
 #include "headers/Core.hpp"
 
 int main(int argc, char** argv){
-    Core core;
+
+    Core core; /// Core object, runs everything else
+
     std::cout << "Hello" << std::endl;
-    core.run();
+    core.run(); /// Running core
 }

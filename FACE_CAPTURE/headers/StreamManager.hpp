@@ -9,7 +9,7 @@ class StreamManager{
     void start();
     void pauseStream();
     void analyze(cv::Mat);
-    void frameSaved();
+    void unpauseStream();
 
     bool running;
     bool processing;
@@ -23,5 +23,5 @@ class StreamManager{
     int capHeight;
 
     cv::Mat frame;
-    rs2::pipeline pipe;
+    rs2::pipeline pipe; /// Construct a pipeline to abstract the device
 };
