@@ -1,6 +1,6 @@
 CC=g++
 
-CFLAGS=-c -Wall
+CFLAGS=-c -Wall -g
 
 CONFIG=`pkg-config --cflags --libs opencv`
 
@@ -23,8 +23,5 @@ StreamManager.o : StreamManager.cpp
 ImageProcessor.o : ImageProcessor.cpp
 	$(CC) $(CFLAGS) ImageProcessor.cpp
 
-cleanAll :
-	rm -rf *o final
-
 clean :
-	rm -rf *o
+	rm -rf *o final

@@ -9,4 +9,5 @@ class Core{
     void processorInit();
 
     bool isRunning;
+    std::string savePath;
 };

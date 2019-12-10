@@ -3,9 +3,7 @@
 #include "headers/Core.hpp"
 
 int main(int argc, char** argv){
-    Core *core = new Core;
-    //std::cout << "Hello" << std::endl;
-    while(core->isRunning){
-        core->run();
-    }
+    Core core;
+    std::cout << "Hello" << std::endl;
+    core.run();
 }

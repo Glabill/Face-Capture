@@ -6,14 +6,13 @@ class StreamManager{
     public:
 
     void openStream();
-    void start(rs2::pipeline, bool);
+    void start();
     void pauseStream();
     void analyze(cv::Mat);
     void frameSaved();
 
     bool running;
-    bool ok;
-    cv::Mat frame;
+    bool processing;
     int frameID;
     int validX;
     int validY;
@@ -22,4 +21,7 @@ class StreamManager{
 
     int capWidth;
     int capHeight;
+
+    cv::Mat frame;
+    rs2::pipeline pipe;
 };

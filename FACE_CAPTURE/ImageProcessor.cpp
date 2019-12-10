@@ -10,8 +10,8 @@ void ImageProcessor::crop(cv::Mat fullFrame, int x, int y, int width, int height
         return;
     }
 
-    //y = y + y * 0.15;
-    //height = height + height * 0.15;
+    y = y - height * 0.3;
+    height = height + height * 0.5;
 
     frame = fullFrame(cv::Rect(x, y, width, height));
 }

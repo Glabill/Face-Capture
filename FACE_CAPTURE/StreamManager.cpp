@@ -7,25 +7,24 @@
 
 void StreamManager::openStream(){
 
-    capWidth = 640;
-    capHeight = 360;
+    capWidth = 1280;
+    capHeight = 720;
     //frameID = 0;
-
-    rs2::pipeline pipe; /// Construct a pipeline to abstract the device
+     /// Construct a pipeline to abstract the device
 
     rs2::config cfg; /// Create a configuration for the pipeline (non-default profile)
     cfg.enable_stream(RS2_STREAM_COLOR, capWidth, capHeight, RS2_FORMAT_BGR8, 30);
 
     pipe.start(cfg); /// Pipeline starts streaming
 
-    //cv::namedWindow("Display Image", cv::WINDOW_AUTOSIZE ); /// Window construction
-
-    start(pipe, running); /// Start camera streaming
-
+    cv::namedWindow("Display Image", cv::WINDOW_AUTOSIZE ); /// Window construction
     running = true;
+    /// Start camera streaming
+
+    
 }
 
-void StreamManager::start(rs2::pipeline pipe, bool open){
+void StreamManager::start(){
 
     rs2::frameset frames;
 
@@ -35,7 +34,8 @@ void StreamManager::start(rs2::pipeline pipe, bool open){
         frames = pipe.wait_for_frames();
     }
 
-    
+    std::cout << "StreamManager - streaming..." << std::endl;
+
     /* Stream Loop */
     while(running){
 
@@ -50,7 +50,7 @@ void StreamManager::start(rs2::pipeline pipe, bool open){
         }
          /// Analyzing frame
         
-        //cv::imshow("Display Image", frame); /// Displaying frame
+        cv::imshow("Display Image", frame); /// Displaying frame
         cv::waitKey(1);
 
         //std::cout << "\n -----------------";
@@ -82,13 +82,13 @@ void StreamManager::analyze(cv::Mat frame){
     cv::Point pt1(faces[0].x, faces[0].y); /// Detected face top left corner face
     cv::Point pt2(faces[0].x + faces[0].height, faces[0].y + faces[0].width); /// Detected face bottom right corner
 
-    if(pt1.x < 0 || pt2.x > capWidth || pt1.y < 0 || pt2.y > capHeight){
+    if(pt1.x < 0 || pt2.x > capWidth || pt1.y - (faces[0].height * 0.3) < 0 || pt2.y + (faces[0].height * 0.3) > capHeight){
         std::cout << "Warning : Stream Manager - Captured face is not totally inside the frame" << std::endl;
         return;
     }
     //cv::rectangle(frame, pt1, pt2, cv::Scalar(0, 0, 255), 2, 8, 0);
-    else if(faces[0].height > 200){
-        ok = true;
+    else if(faces[0].height > 100 && faces[0].height < 400){
+        
         pauseStream();
         validX = faces[0].x;
         validY = faces[0].y;
@@ -107,13 +107,15 @@ void StreamManager::analyze(cv::Mat frame){
 
 
 void StreamManager::pauseStream(){
-    running = false;
 
-    if(!ok){
-        running = true;
-    }
+    running = false;
+    processing = true;
 }
 
 void StreamManager::frameSaved(){
-    ok = false;
+    
+    processing = false;
+    running = true;
+    
+    
 }
