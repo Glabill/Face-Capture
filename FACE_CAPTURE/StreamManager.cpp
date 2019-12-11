@@ -21,15 +21,13 @@ void StreamManager::openStream(){
 
 void StreamManager::start(){
 
-    rs2::frameset frames;
-
     /* Camera warmup (for auto exposure) */
     for(int i = 0; i < 30; i++)
     {
         frames = pipe.wait_for_frames();
     }
 
-    std::cout << "StreamManager - streaming..." << std::endl;
+    std::cout << "streaming..." << std::endl;
 
     /* Stream Loop */
     while(running){
@@ -40,47 +38,60 @@ void StreamManager::start(){
         cv::Mat color(cv::Size(capWidth, capHeight), CV_8UC3, (void*)color_frame.get_data(), cv::Mat::AUTO_STEP); /// Constructing an OpenCV Mat out of the color frame
 
         if(color.data){
-            frame = color;
-            analyze(frame); /// Analyzing frame
+
+            procFrame = color;
+
+            analyze(); /// Analyzing frame
+
+            cv::imshow("Display Image", procFrame); /// Displaying frame
+            cv::waitKey(5); /// Wait for... (ms)
         }
+
         
-        cv::imshow("Display Image", frame); /// Displaying frame
-        cv::waitKey(1); /// Wait for... (ms)
     }
 }
 
 /* Analyzing frame */
-void StreamManager::analyze(cv::Mat frame){
-
-    cv::CascadeClassifier faceDetection; /// Creating a Cascade Classifier
+void StreamManager::analyze(){
 
     /* Loading a model */
     if(!faceDetection.load("/home/gaston/Desktop/CRP/FACE_CAPTURE/datas/haarcascade_frontalface_default.xml")){
-        std::cout << "Error : Stream Manager - Model is not loaded" << std::endl;
+
+        std::cout << "Error : Model is not loaded" << std::endl;
         exit(0);
     }
 
     std::vector<cv::Rect> faces; /// Storing faces
 
-    if(!frame.data){
-        std::cout<< "Error : Stream Manager - Frame to be analyzed is not loaded" << std::endl;
+    if(!procFrame.data){
+
+        std::cout<< "Error : Frame to be analyzed is not loaded" << std::endl;
         return;
     }
 
-    faceDetection.detectMultiScale(frame, faces); /// Detecting faces
+    faceDetection.detectMultiScale(procFrame, faces); /// Detecting faces
 
     /* Drawing bounding box */
-    cv::Point pt1(faces[0].x, faces[0].y); /// Detected face top left corner face
-    cv::Point pt2(faces[0].x + faces[0].height, faces[0].y + faces[0].width); /// Detected face bottom right corner
-    cv::rectangle(frame, pt1, pt2, cv::Scalar(0, 0, 255), 2, 8, 0); /// Display bounding box
+    if (faces.size() > 0){
 
-    /* Making sure final image can be cropped out of the current frame */
-    if(pt1.x < 0 || pt2.x > capWidth || pt1.y - (faces[0].height * 0.3) < 0 || pt2.y + (faces[0].height * 0.3) > capHeight){
-        std::cout << "Warning : Stream Manager - Captured face is not totally inside the frame" << std::endl;
+        pt1 = cv::Point(faces[0].x, faces[0].y); /// Detected face top left corner face
+        pt2 = cv::Point(faces[0].x + faces[0].height, faces[0].y + faces[0].width); /// Detected face bottom right corner
+        //cv::rectangle(procFrame, pt1, pt2, cv::Scalar(0, 255, 0), 1, 1, 0); /// Display bounding box
+    }else{
+
         return;
     }
     
-    else if(faces[0].height > 100 && faces[0].height < 400){
+    /* Making sure final image can be cropped out of the current frame */
+    if(pt1.x < 0 || pt2.x > capWidth || pt1.y - (faces[0].height * 0.3) < 0 || pt2.y + (faces[0].height * 0.5) > capHeight){
+
+        std::cout << "Warning : Captured face is not totally inside the frame" << std::endl;
+
+        return;
+    }
+    
+    if(faces[0].height > 100 && faces[0].height < 400){
+
         pauseStream(); /// Pause the stream
 
         /* Passing detected face's bounding box to be handled by the Image Processor*/
@@ -88,12 +99,11 @@ void StreamManager::analyze(cv::Mat frame){
         validY = faces[0].y;
         validW = faces[0].width;
         validH = faces[0].height;
-    }
-    
-    else
-    {
+    }else{
+
         return;
     }
+    
 }
 
 

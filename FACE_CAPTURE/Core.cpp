@@ -6,20 +6,13 @@
 
 void Core::run(){
 
+    StreamManager stmManager;
+    ImageProcessor imgProcessor;
+
     isRunning = true;
+
     streamInit(); /// Initializing stream
-}
-
-void Core::streamInit(){
-
-    std::cout << "Stream Initialization" << std::endl;
-
-    savePath = "/home/gaston/sambashare/face.png"; /// Path to where the output will be saved - image compression format defined by the file extension
-
-    StreamManager stmManager; /// Create Stream Manager
-    ImageProcessor imgProcessor; /// Create Image Processor
-
-    imgProcessor.frameHistory = 0;
+    processorInit(); /// Initializing processor
 
     stmManager.openStream(); /// Open the stream
 
@@ -32,11 +25,24 @@ void Core::streamInit(){
         if(stmManager.processing){
             std::cout << "Processing frame..." << std::endl;
 
-            imgProcessor.crop(stmManager.frame, stmManager.validX, stmManager.validY, stmManager.validW, stmManager.validH);
+            imgProcessor.crop(stmManager.procFrame, stmManager.validX, stmManager.validY, stmManager.validW, stmManager.validH);
             imgProcessor.save(imgProcessor.frame, savePath);
-            stmManager.unpauseStream();
+
+            stmManager.unpauseStream(); /// Restart the stream
         }
     }
+}
+
+void Core::streamInit(){
+
+    std::cout << "Stream Manager Initialization" << std::endl;
+}
+
+void Core::processorInit(){
+
+    std::cout << "Image Processor Initialization" << std::endl;
+
+    savePath = "/home/gaston/sambashare/face.png"; /// Path to where the output will be saved - image compression format defined by the file extension
 }
 
 
