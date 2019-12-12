@@ -85,7 +85,7 @@ void StreamManager::analyze(){
     /* Making sure final image can be cropped out of the current frame */
     if(pt1.x < 0 || pt2.x > capWidth || pt1.y - (faces[0].height * 0.3) < 0 || pt2.y + (faces[0].height * 0.5) > capHeight){
 
-        std::cout << "Warning : Captured face is not totally inside the frame" << std::endl;
+        //std::cout << "Warning : Captured face is not totally inside the frame" << std::endl;
 
         return;
     }

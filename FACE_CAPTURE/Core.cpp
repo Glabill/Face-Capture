@@ -1,7 +1,6 @@
 #include "headers/Core.hpp"
 #include "headers/StreamManager.hpp"
 #include "headers/ImageProcessor.hpp"
-#include "headers/Frame.hpp"
 
 
 void Core::run(){
