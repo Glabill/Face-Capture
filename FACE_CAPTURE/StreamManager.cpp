@@ -46,8 +46,6 @@ void StreamManager::start(){
             cv::imshow("Display Image", procFrame); /// Displaying frame
             cv::waitKey(5); /// Wait for... (ms)
         }
-
-        
     }
 }
 

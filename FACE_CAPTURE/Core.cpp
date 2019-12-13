@@ -40,8 +40,7 @@ void Core::streamInit(){
 void Core::processorInit(){
 
     std::cout << "Image Processor Initialization" << std::endl;
-
-    savePath = "/home/gaston/sambashare/face.png"; /// Path to where the output will be saved - image compression format defined by the file extension
+    savePath = "/var/www/html/face.png"; /// Path to where the output will be saved - image compression format defined by the file extension
 }
 
 
