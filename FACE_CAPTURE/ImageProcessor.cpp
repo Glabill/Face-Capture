@@ -1,3 +1,10 @@
+/*
+F4C3
+.crp / Gaston Gougeon
+https://crp.wtf
+2019-2020
+*/
+
 #include "headers/ImageProcessor.hpp"
 #include "headers/StreamManager.hpp"
 #include "headers/Frame.hpp"

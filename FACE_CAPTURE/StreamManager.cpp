@@ -1,3 +1,10 @@
+/*
+F4C3
+.crp / Gaston Gougeon
+https://crp.wtf
+2019-2020
+*/
+
 #include "headers/StreamManager.hpp"
 #include <librealsense2/rs.hpp>
 #include <opencv2/opencv.hpp>
@@ -79,7 +86,7 @@ void StreamManager::analyze(){
         pt1 = cv::Point(faces[0].x, faces[0].y); /// Detected face top left corner face
         pt2 = cv::Point(faces[0].x + faces[0].height, faces[0].y + faces[0].width); /// Detected face bottom right corner
         pt1_1 = cv::Point(pt1.x, pt1.y - (faces[0].height * 0.3));
-        pt2_2 = cv::Point(pt2.x, pt2.y + (faces[0].height * 0.5));
+        pt2_2 = cv::Point(pt2.x, faces[0].height + (faces[0].height * 0.5));
         cv::rectangle(dispFrame, pt1, pt2, cv::Scalar(0, 255, 0), 1, 1, 0);
         cv::rectangle(dispFrame, pt1_1, pt2_2, cv::Scalar(0,255,0), 2, 2, 0);
     }else{
