@@ -13,5 +13,6 @@ class Core{
 
     bool isRunning;
     std::string savePath;
+    std::string archSavePath;
     
 };

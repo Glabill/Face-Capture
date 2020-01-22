@@ -25,7 +25,7 @@ void Core::run(){
             std::cout << "Processing frame..." << std::endl;
 
             imgProcessor.crop(stmManager.procFrame, stmManager.validX, stmManager.validY, stmManager.validW, stmManager.validH);
-            imgProcessor.save(imgProcessor.frame, savePath);
+            imgProcessor.save(imgProcessor.frame, savePath, archSavePath);
 
             stmManager.unpauseStream(); /// Restart the stream
         }
@@ -40,7 +40,8 @@ void Core::streamInit(){
 void Core::processorInit(){
 
     std::cout << "Image Processor Initialization" << std::endl;
-    savePath = "/var/www/html/face.png"; /// Path to where the output will be saved - image compression format defined by the file extension
+    savePath = "./output/face.png"; /// Path to where the output will be saved - image compression format defined by the file extension
+    archSavePath = "./output/arch/"; /// Path to where the archived images will be saved - don't precise file name or extension here
 }
 
 

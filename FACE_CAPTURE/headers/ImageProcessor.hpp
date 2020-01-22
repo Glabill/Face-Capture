@@ -6,12 +6,11 @@ class ImageProcessor{
     public :
 
     void crop(cv::Mat frame, int x, int y, int width, int height);
-    void save(cv::Mat frame, std::string savePath);
-    void archive(std::string savePath, int frameHistory);
+    void save(cv::Mat frame, std::string savePath, std::string archSavePath);
     cv::Mat frame;
 
     private :
 
-    int frameHistory;
+    int frameHistory = 0;
     
 };

@@ -16,6 +16,7 @@ void StreamManager::openStream(){
     pipe.start(cfg); /// Pipeline starts streaming
 
     cv::namedWindow("Display Image", cv::WINDOW_AUTOSIZE ); /// Window construction
+
     running = true; 
 }
 
@@ -41,9 +42,12 @@ void StreamManager::start(){
 
             procFrame = color;
 
+            dispFrame = color.clone();
+            
             analyze(); /// Analyzing frame
 
-            cv::imshow("Display Image", procFrame); /// Displaying frame
+            
+            cv::imshow("Display Image", dispFrame); /// Display bounding box); /// Displaying frame
             cv::waitKey(5); /// Wait for... (ms)
         }
     }
@@ -74,7 +78,10 @@ void StreamManager::analyze(){
 
         pt1 = cv::Point(faces[0].x, faces[0].y); /// Detected face top left corner face
         pt2 = cv::Point(faces[0].x + faces[0].height, faces[0].y + faces[0].width); /// Detected face bottom right corner
-        //cv::rectangle(procFrame, pt1, pt2, cv::Scalar(0, 255, 0), 1, 1, 0); /// Display bounding box
+        pt1_1 = cv::Point(pt1.x, pt1.y - (faces[0].height * 0.3));
+        pt2_2 = cv::Point(pt2.x, pt2.y + (faces[0].height * 0.5));
+        cv::rectangle(dispFrame, pt1, pt2, cv::Scalar(0, 255, 0), 1, 1, 0);
+        cv::rectangle(dispFrame, pt1_1, pt2_2, cv::Scalar(0,255,0), 2, 2, 0);
     }else{
 
         return;
@@ -97,6 +104,7 @@ void StreamManager::analyze(){
         validY = faces[0].y;
         validW = faces[0].width;
         validH = faces[0].height;
+
     }else{
 
         return;
