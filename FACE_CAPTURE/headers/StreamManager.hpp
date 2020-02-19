@@ -26,13 +26,16 @@ class StreamManager{
     cv::Mat procFrame;
     cv::Mat dispFrame;
 
+    cv::Point pt1_1;
+    cv::Point pt2_2;
 
     private:
 
     cv::Point pt1;
     cv::Point pt2;
-    cv::Point pt1_1;
-    cv::Point pt2_2;
+
+    
+
     rs2::pipeline pipe; /// Construct a pipeline to abstract the device
     rs2::frameset frames;
     cv::CascadeClassifier faceDetection; /// Creating a Cascade Classifier

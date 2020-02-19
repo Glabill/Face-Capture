@@ -47,7 +47,9 @@ void Core::streamInit(){
 void Core::processorInit(){
 
     std::cout << "Image Processor Initialization" << std::endl;
+
     savePath = "./output/face.png"; /// Path to where the output will be saved - image compression format defined by the file extension
+    
     archSavePath = "./output/arch/"; /// Path to where the archived images will be saved - don't precise file name or extension here
 }
 

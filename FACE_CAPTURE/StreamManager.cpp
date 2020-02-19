@@ -85,10 +85,13 @@ void StreamManager::analyze(){
 
         pt1 = cv::Point(faces[0].x, faces[0].y); /// Detected face top left corner face
         pt2 = cv::Point(faces[0].x + faces[0].height, faces[0].y + faces[0].width); /// Detected face bottom right corner
+
         pt1_1 = cv::Point(pt1.x, pt1.y - (faces[0].height * 0.3));
-        pt2_2 = cv::Point(pt2.x, faces[0].height + (faces[0].height * 0.5));
+        pt2_2 = cv::Point(pt2.x, pt2.y + (faces[0].height * 0.5));
+
         cv::rectangle(dispFrame, pt1, pt2, cv::Scalar(0, 255, 0), 1, 1, 0);
-        cv::rectangle(dispFrame, pt1_1, pt2_2, cv::Scalar(0,255,0), 2, 2, 0);
+        cv::rectangle(dispFrame, pt1_1, pt2_2, cv::Scalar(0,255,0), 3, 1, 0);
+
     }else{
 
         return;
@@ -108,9 +111,9 @@ void StreamManager::analyze(){
 
         /* Passing detected face's bounding box to be handled by the Image Processor*/
         validX = faces[0].x;
-        validY = faces[0].y;
+        validY = pt1_1.y;
         validW = faces[0].width;
-        validH = faces[0].height;
+        validH = pt2_2.y - pt1_1.y;
 
     }else{
 

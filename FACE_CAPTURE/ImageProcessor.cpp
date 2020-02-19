@@ -17,10 +17,6 @@ void ImageProcessor::crop(cv::Mat fullFrame, int x, int y, int width, int height
         return;
     }
 
-    /* Enlarging bounding box to the entire face */
-    y = y - height * 0.3;
-    height = height + height * 0.5;
-
     frame = fullFrame(cv::Rect(x, y, width, height)); /// Cropping the current frame
 }
 
