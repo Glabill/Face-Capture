@@ -5,7 +5,7 @@ https://crp.wtf
 2019-2020
 */
 
-#include "headers/StreamManager.hpp"
+#include "../headers/StreamManager.hpp"
 #include <librealsense2/rs.hpp>
 #include <opencv2/opencv.hpp>
 #include <opencv2/imgproc.hpp>
@@ -22,7 +22,7 @@ void StreamManager::openStream(){
 
     pipe.start(cfg); /// Pipeline starts streaming
 
-    cv::namedWindow("Display Image", cv::WINDOW_AUTOSIZE ); /// Window construction
+    cv::namedWindow("F4C3", cv::WINDOW_AUTOSIZE ); /// Window construction
 
     running = true; 
 }
@@ -54,8 +54,8 @@ void StreamManager::start(){
             analyze(); /// Analyzing frame
 
             
-            cv::imshow("Display Image", dispFrame); /// Display bounding box); /// Displaying frame
-            cv::waitKey(5); /// Wait for... (ms)
+            cv::imshow("F4C3", dispFrame); /// Display bounding box); /// Displaying frame
+            cv::waitKey(5); /// Wait for... (ms), needed by openCV to update
         }
     }
 }
@@ -89,8 +89,16 @@ void StreamManager::analyze(){
         pt1_1 = cv::Point(pt1.x, pt1.y - (faces[0].height * 0.3));
         pt2_2 = cv::Point(pt2.x, pt2.y + (faces[0].height * 0.5));
 
-        cv::rectangle(dispFrame, pt1, pt2, cv::Scalar(0, 255, 0), 1, 1, 0);
-        cv::rectangle(dispFrame, pt1_1, pt2_2, cv::Scalar(0,255,0), 3, 1, 0);
+		enum LineTypes
+		{
+    		FILLED  = -1,
+    		LINE_4  = 4,
+    		LINE_8  = 8,
+    		LINE_AA = 16,
+		};
+
+        cv::rectangle(dispFrame, pt1, pt2, cv::Scalar(0, 255, 0), 2, 0, 0);
+        cv::rectangle(dispFrame, pt1_1, pt2_2, cv::Scalar(0,255,0), 2, 0, 0);
 
     }else{
 

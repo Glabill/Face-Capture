@@ -5,10 +5,10 @@ https://crp.wtf
 2019-2020
 */
 
-#include "headers/ImageProcessor.hpp"
-#include "headers/StreamManager.hpp"
-#include "headers/Frame.hpp"
-#include "headers/Core.hpp"
+#include "../headers/ImageProcessor.hpp"
+#include "../headers/StreamManager.hpp"
+#include "../headers/Frame.hpp"
+#include "../headers/Core.hpp"
 
 void ImageProcessor::crop(cv::Mat fullFrame, int x, int y, int width, int height){
 

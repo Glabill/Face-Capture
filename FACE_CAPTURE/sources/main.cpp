@@ -7,7 +7,7 @@ https://crp.wtf
 
 #include <opencv2/highgui.hpp>
 #include <iostream>
-#include "headers/Core.hpp"
+#include "../headers/Core.hpp"
 
 int main(int argc, char** argv){
 

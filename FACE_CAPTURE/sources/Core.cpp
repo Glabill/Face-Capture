@@ -5,9 +5,9 @@ https://crp.wtf
 2019-2020
 */
 
-#include "headers/Core.hpp"
-#include "headers/StreamManager.hpp"
-#include "headers/ImageProcessor.hpp"
+#include "../headers/Core.hpp"
+#include "../headers/StreamManager.hpp"
+#include "../headers/ImageProcessor.hpp"
 
 
 void Core::run(){
