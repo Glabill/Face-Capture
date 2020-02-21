@@ -4,7 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/crp/Documents/Face-Capture/main.cpp" "/home/crp/Documents/Face-Capture/build/CMakeFiles/F4C3.dir/main.cpp.o"
+  "/home/crp/Documents/Face-Capture/F4C3/sources/Core.cpp" "/home/crp/Documents/Face-Capture/build/CMakeFiles/F4C3.dir/F4C3/sources/Core.cpp.o"
+  "/home/crp/Documents/Face-Capture/F4C3/sources/ImageProcessor.cpp" "/home/crp/Documents/Face-Capture/build/CMakeFiles/F4C3.dir/F4C3/sources/ImageProcessor.cpp.o"
+  "/home/crp/Documents/Face-Capture/F4C3/sources/StreamManager.cpp" "/home/crp/Documents/Face-Capture/build/CMakeFiles/F4C3.dir/F4C3/sources/StreamManager.cpp.o"
+  "/home/crp/Documents/Face-Capture/F4C3/sources/main.cpp" "/home/crp/Documents/Face-Capture/build/CMakeFiles/F4C3.dir/F4C3/sources/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

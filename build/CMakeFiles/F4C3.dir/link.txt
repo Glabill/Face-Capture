@@ -1,1 +1,1 @@
-/usr/bin/g++-7  -g  -rdynamic CMakeFiles/F4C3.dir/main.cpp.o  -o F4C3 
+/usr/bin/g++-7  -g  -rdynamic CMakeFiles/F4C3.dir/F4C3/sources/main.cpp.o CMakeFiles/F4C3.dir/F4C3/sources/Core.cpp.o CMakeFiles/F4C3.dir/F4C3/sources/StreamManager.cpp.o CMakeFiles/F4C3.dir/F4C3/sources/ImageProcessor.cpp.o  -o F4C3 

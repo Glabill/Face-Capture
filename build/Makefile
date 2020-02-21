@@ -520,32 +520,113 @@ ExperimentalBuild/fast:
 	$(MAKE) -f CMakeFiles/ExperimentalBuild.dir/build.make CMakeFiles/ExperimentalBuild.dir/build
 .PHONY : ExperimentalBuild/fast
 
-main.o: main.cpp.o
+F4C3/sources/Core.o: F4C3/sources/Core.cpp.o
 
-.PHONY : main.o
+.PHONY : F4C3/sources/Core.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/F4C3.dir/build.make CMakeFiles/F4C3.dir/main.cpp.o
-.PHONY : main.cpp.o
+F4C3/sources/Core.cpp.o:
+	$(MAKE) -f CMakeFiles/F4C3.dir/build.make CMakeFiles/F4C3.dir/F4C3/sources/Core.cpp.o
+.PHONY : F4C3/sources/Core.cpp.o
 
-main.i: main.cpp.i
+F4C3/sources/Core.i: F4C3/sources/Core.cpp.i
 
-.PHONY : main.i
+.PHONY : F4C3/sources/Core.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/F4C3.dir/build.make CMakeFiles/F4C3.dir/main.cpp.i
-.PHONY : main.cpp.i
+F4C3/sources/Core.cpp.i:
+	$(MAKE) -f CMakeFiles/F4C3.dir/build.make CMakeFiles/F4C3.dir/F4C3/sources/Core.cpp.i
+.PHONY : F4C3/sources/Core.cpp.i
 
-main.s: main.cpp.s
+F4C3/sources/Core.s: F4C3/sources/Core.cpp.s
 
-.PHONY : main.s
+.PHONY : F4C3/sources/Core.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/F4C3.dir/build.make CMakeFiles/F4C3.dir/main.cpp.s
-.PHONY : main.cpp.s
+F4C3/sources/Core.cpp.s:
+	$(MAKE) -f CMakeFiles/F4C3.dir/build.make CMakeFiles/F4C3.dir/F4C3/sources/Core.cpp.s
+.PHONY : F4C3/sources/Core.cpp.s
+
+F4C3/sources/ImageProcessor.o: F4C3/sources/ImageProcessor.cpp.o
+
+.PHONY : F4C3/sources/ImageProcessor.o
+
+# target to build an object file
+F4C3/sources/ImageProcessor.cpp.o:
+	$(MAKE) -f CMakeFiles/F4C3.dir/build.make CMakeFiles/F4C3.dir/F4C3/sources/ImageProcessor.cpp.o
+.PHONY : F4C3/sources/ImageProcessor.cpp.o
+
+F4C3/sources/ImageProcessor.i: F4C3/sources/ImageProcessor.cpp.i
+
+.PHONY : F4C3/sources/ImageProcessor.i
+
+# target to preprocess a source file
+F4C3/sources/ImageProcessor.cpp.i:
+	$(MAKE) -f CMakeFiles/F4C3.dir/build.make CMakeFiles/F4C3.dir/F4C3/sources/ImageProcessor.cpp.i
+.PHONY : F4C3/sources/ImageProcessor.cpp.i
+
+F4C3/sources/ImageProcessor.s: F4C3/sources/ImageProcessor.cpp.s
+
+.PHONY : F4C3/sources/ImageProcessor.s
+
+# target to generate assembly for a file
+F4C3/sources/ImageProcessor.cpp.s:
+	$(MAKE) -f CMakeFiles/F4C3.dir/build.make CMakeFiles/F4C3.dir/F4C3/sources/ImageProcessor.cpp.s
+.PHONY : F4C3/sources/ImageProcessor.cpp.s
+
+F4C3/sources/StreamManager.o: F4C3/sources/StreamManager.cpp.o
+
+.PHONY : F4C3/sources/StreamManager.o
+
+# target to build an object file
+F4C3/sources/StreamManager.cpp.o:
+	$(MAKE) -f CMakeFiles/F4C3.dir/build.make CMakeFiles/F4C3.dir/F4C3/sources/StreamManager.cpp.o
+.PHONY : F4C3/sources/StreamManager.cpp.o
+
+F4C3/sources/StreamManager.i: F4C3/sources/StreamManager.cpp.i
+
+.PHONY : F4C3/sources/StreamManager.i
+
+# target to preprocess a source file
+F4C3/sources/StreamManager.cpp.i:
+	$(MAKE) -f CMakeFiles/F4C3.dir/build.make CMakeFiles/F4C3.dir/F4C3/sources/StreamManager.cpp.i
+.PHONY : F4C3/sources/StreamManager.cpp.i
+
+F4C3/sources/StreamManager.s: F4C3/sources/StreamManager.cpp.s
+
+.PHONY : F4C3/sources/StreamManager.s
+
+# target to generate assembly for a file
+F4C3/sources/StreamManager.cpp.s:
+	$(MAKE) -f CMakeFiles/F4C3.dir/build.make CMakeFiles/F4C3.dir/F4C3/sources/StreamManager.cpp.s
+.PHONY : F4C3/sources/StreamManager.cpp.s
+
+F4C3/sources/main.o: F4C3/sources/main.cpp.o
+
+.PHONY : F4C3/sources/main.o
+
+# target to build an object file
+F4C3/sources/main.cpp.o:
+	$(MAKE) -f CMakeFiles/F4C3.dir/build.make CMakeFiles/F4C3.dir/F4C3/sources/main.cpp.o
+.PHONY : F4C3/sources/main.cpp.o
+
+F4C3/sources/main.i: F4C3/sources/main.cpp.i
+
+.PHONY : F4C3/sources/main.i
+
+# target to preprocess a source file
+F4C3/sources/main.cpp.i:
+	$(MAKE) -f CMakeFiles/F4C3.dir/build.make CMakeFiles/F4C3.dir/F4C3/sources/main.cpp.i
+.PHONY : F4C3/sources/main.cpp.i
+
+F4C3/sources/main.s: F4C3/sources/main.cpp.s
+
+.PHONY : F4C3/sources/main.s
+
+# target to generate assembly for a file
+F4C3/sources/main.cpp.s:
+	$(MAKE) -f CMakeFiles/F4C3.dir/build.make CMakeFiles/F4C3.dir/F4C3/sources/main.cpp.s
+.PHONY : F4C3/sources/main.cpp.s
 
 # Help Target
 help:
@@ -587,9 +668,18 @@ help:
 	@echo "... ContinuousTest"
 	@echo "... ContinuousUpdate"
 	@echo "... ExperimentalBuild"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... F4C3/sources/Core.o"
+	@echo "... F4C3/sources/Core.i"
+	@echo "... F4C3/sources/Core.s"
+	@echo "... F4C3/sources/ImageProcessor.o"
+	@echo "... F4C3/sources/ImageProcessor.i"
+	@echo "... F4C3/sources/ImageProcessor.s"
+	@echo "... F4C3/sources/StreamManager.o"
+	@echo "... F4C3/sources/StreamManager.i"
+	@echo "... F4C3/sources/StreamManager.s"
+	@echo "... F4C3/sources/main.o"
+	@echo "... F4C3/sources/main.i"
+	@echo "... F4C3/sources/main.s"
 .PHONY : help
 
 

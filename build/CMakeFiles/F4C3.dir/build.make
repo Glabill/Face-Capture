@@ -57,41 +57,119 @@ include CMakeFiles/F4C3.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/F4C3.dir/flags.make
 
-CMakeFiles/F4C3.dir/main.cpp.o: CMakeFiles/F4C3.dir/flags.make
-CMakeFiles/F4C3.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/crp/Documents/Face-Capture/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/F4C3.dir/main.cpp.o"
-	/usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/F4C3.dir/main.cpp.o -c /home/crp/Documents/Face-Capture/main.cpp
+CMakeFiles/F4C3.dir/F4C3/sources/main.cpp.o: CMakeFiles/F4C3.dir/flags.make
+CMakeFiles/F4C3.dir/F4C3/sources/main.cpp.o: ../F4C3/sources/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/crp/Documents/Face-Capture/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/F4C3.dir/F4C3/sources/main.cpp.o"
+	/usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/F4C3.dir/F4C3/sources/main.cpp.o -c /home/crp/Documents/Face-Capture/F4C3/sources/main.cpp
 
-CMakeFiles/F4C3.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/F4C3.dir/main.cpp.i"
-	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/crp/Documents/Face-Capture/main.cpp > CMakeFiles/F4C3.dir/main.cpp.i
+CMakeFiles/F4C3.dir/F4C3/sources/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/F4C3.dir/F4C3/sources/main.cpp.i"
+	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/crp/Documents/Face-Capture/F4C3/sources/main.cpp > CMakeFiles/F4C3.dir/F4C3/sources/main.cpp.i
 
-CMakeFiles/F4C3.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/F4C3.dir/main.cpp.s"
-	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/crp/Documents/Face-Capture/main.cpp -o CMakeFiles/F4C3.dir/main.cpp.s
+CMakeFiles/F4C3.dir/F4C3/sources/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/F4C3.dir/F4C3/sources/main.cpp.s"
+	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/crp/Documents/Face-Capture/F4C3/sources/main.cpp -o CMakeFiles/F4C3.dir/F4C3/sources/main.cpp.s
 
-CMakeFiles/F4C3.dir/main.cpp.o.requires:
+CMakeFiles/F4C3.dir/F4C3/sources/main.cpp.o.requires:
 
-.PHONY : CMakeFiles/F4C3.dir/main.cpp.o.requires
+.PHONY : CMakeFiles/F4C3.dir/F4C3/sources/main.cpp.o.requires
 
-CMakeFiles/F4C3.dir/main.cpp.o.provides: CMakeFiles/F4C3.dir/main.cpp.o.requires
-	$(MAKE) -f CMakeFiles/F4C3.dir/build.make CMakeFiles/F4C3.dir/main.cpp.o.provides.build
-.PHONY : CMakeFiles/F4C3.dir/main.cpp.o.provides
+CMakeFiles/F4C3.dir/F4C3/sources/main.cpp.o.provides: CMakeFiles/F4C3.dir/F4C3/sources/main.cpp.o.requires
+	$(MAKE) -f CMakeFiles/F4C3.dir/build.make CMakeFiles/F4C3.dir/F4C3/sources/main.cpp.o.provides.build
+.PHONY : CMakeFiles/F4C3.dir/F4C3/sources/main.cpp.o.provides
 
-CMakeFiles/F4C3.dir/main.cpp.o.provides.build: CMakeFiles/F4C3.dir/main.cpp.o
+CMakeFiles/F4C3.dir/F4C3/sources/main.cpp.o.provides.build: CMakeFiles/F4C3.dir/F4C3/sources/main.cpp.o
+
+
+CMakeFiles/F4C3.dir/F4C3/sources/Core.cpp.o: CMakeFiles/F4C3.dir/flags.make
+CMakeFiles/F4C3.dir/F4C3/sources/Core.cpp.o: ../F4C3/sources/Core.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/crp/Documents/Face-Capture/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/F4C3.dir/F4C3/sources/Core.cpp.o"
+	/usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/F4C3.dir/F4C3/sources/Core.cpp.o -c /home/crp/Documents/Face-Capture/F4C3/sources/Core.cpp
+
+CMakeFiles/F4C3.dir/F4C3/sources/Core.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/F4C3.dir/F4C3/sources/Core.cpp.i"
+	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/crp/Documents/Face-Capture/F4C3/sources/Core.cpp > CMakeFiles/F4C3.dir/F4C3/sources/Core.cpp.i
+
+CMakeFiles/F4C3.dir/F4C3/sources/Core.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/F4C3.dir/F4C3/sources/Core.cpp.s"
+	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/crp/Documents/Face-Capture/F4C3/sources/Core.cpp -o CMakeFiles/F4C3.dir/F4C3/sources/Core.cpp.s
+
+CMakeFiles/F4C3.dir/F4C3/sources/Core.cpp.o.requires:
+
+.PHONY : CMakeFiles/F4C3.dir/F4C3/sources/Core.cpp.o.requires
+
+CMakeFiles/F4C3.dir/F4C3/sources/Core.cpp.o.provides: CMakeFiles/F4C3.dir/F4C3/sources/Core.cpp.o.requires
+	$(MAKE) -f CMakeFiles/F4C3.dir/build.make CMakeFiles/F4C3.dir/F4C3/sources/Core.cpp.o.provides.build
+.PHONY : CMakeFiles/F4C3.dir/F4C3/sources/Core.cpp.o.provides
+
+CMakeFiles/F4C3.dir/F4C3/sources/Core.cpp.o.provides.build: CMakeFiles/F4C3.dir/F4C3/sources/Core.cpp.o
+
+
+CMakeFiles/F4C3.dir/F4C3/sources/StreamManager.cpp.o: CMakeFiles/F4C3.dir/flags.make
+CMakeFiles/F4C3.dir/F4C3/sources/StreamManager.cpp.o: ../F4C3/sources/StreamManager.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/crp/Documents/Face-Capture/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/F4C3.dir/F4C3/sources/StreamManager.cpp.o"
+	/usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/F4C3.dir/F4C3/sources/StreamManager.cpp.o -c /home/crp/Documents/Face-Capture/F4C3/sources/StreamManager.cpp
+
+CMakeFiles/F4C3.dir/F4C3/sources/StreamManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/F4C3.dir/F4C3/sources/StreamManager.cpp.i"
+	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/crp/Documents/Face-Capture/F4C3/sources/StreamManager.cpp > CMakeFiles/F4C3.dir/F4C3/sources/StreamManager.cpp.i
+
+CMakeFiles/F4C3.dir/F4C3/sources/StreamManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/F4C3.dir/F4C3/sources/StreamManager.cpp.s"
+	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/crp/Documents/Face-Capture/F4C3/sources/StreamManager.cpp -o CMakeFiles/F4C3.dir/F4C3/sources/StreamManager.cpp.s
+
+CMakeFiles/F4C3.dir/F4C3/sources/StreamManager.cpp.o.requires:
+
+.PHONY : CMakeFiles/F4C3.dir/F4C3/sources/StreamManager.cpp.o.requires
+
+CMakeFiles/F4C3.dir/F4C3/sources/StreamManager.cpp.o.provides: CMakeFiles/F4C3.dir/F4C3/sources/StreamManager.cpp.o.requires
+	$(MAKE) -f CMakeFiles/F4C3.dir/build.make CMakeFiles/F4C3.dir/F4C3/sources/StreamManager.cpp.o.provides.build
+.PHONY : CMakeFiles/F4C3.dir/F4C3/sources/StreamManager.cpp.o.provides
+
+CMakeFiles/F4C3.dir/F4C3/sources/StreamManager.cpp.o.provides.build: CMakeFiles/F4C3.dir/F4C3/sources/StreamManager.cpp.o
+
+
+CMakeFiles/F4C3.dir/F4C3/sources/ImageProcessor.cpp.o: CMakeFiles/F4C3.dir/flags.make
+CMakeFiles/F4C3.dir/F4C3/sources/ImageProcessor.cpp.o: ../F4C3/sources/ImageProcessor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/crp/Documents/Face-Capture/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/F4C3.dir/F4C3/sources/ImageProcessor.cpp.o"
+	/usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/F4C3.dir/F4C3/sources/ImageProcessor.cpp.o -c /home/crp/Documents/Face-Capture/F4C3/sources/ImageProcessor.cpp
+
+CMakeFiles/F4C3.dir/F4C3/sources/ImageProcessor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/F4C3.dir/F4C3/sources/ImageProcessor.cpp.i"
+	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/crp/Documents/Face-Capture/F4C3/sources/ImageProcessor.cpp > CMakeFiles/F4C3.dir/F4C3/sources/ImageProcessor.cpp.i
+
+CMakeFiles/F4C3.dir/F4C3/sources/ImageProcessor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/F4C3.dir/F4C3/sources/ImageProcessor.cpp.s"
+	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/crp/Documents/Face-Capture/F4C3/sources/ImageProcessor.cpp -o CMakeFiles/F4C3.dir/F4C3/sources/ImageProcessor.cpp.s
+
+CMakeFiles/F4C3.dir/F4C3/sources/ImageProcessor.cpp.o.requires:
+
+.PHONY : CMakeFiles/F4C3.dir/F4C3/sources/ImageProcessor.cpp.o.requires
+
+CMakeFiles/F4C3.dir/F4C3/sources/ImageProcessor.cpp.o.provides: CMakeFiles/F4C3.dir/F4C3/sources/ImageProcessor.cpp.o.requires
+	$(MAKE) -f CMakeFiles/F4C3.dir/build.make CMakeFiles/F4C3.dir/F4C3/sources/ImageProcessor.cpp.o.provides.build
+.PHONY : CMakeFiles/F4C3.dir/F4C3/sources/ImageProcessor.cpp.o.provides
+
+CMakeFiles/F4C3.dir/F4C3/sources/ImageProcessor.cpp.o.provides.build: CMakeFiles/F4C3.dir/F4C3/sources/ImageProcessor.cpp.o
 
 
 # Object files for target F4C3
 F4C3_OBJECTS = \
-"CMakeFiles/F4C3.dir/main.cpp.o"
+"CMakeFiles/F4C3.dir/F4C3/sources/main.cpp.o" \
+"CMakeFiles/F4C3.dir/F4C3/sources/Core.cpp.o" \
+"CMakeFiles/F4C3.dir/F4C3/sources/StreamManager.cpp.o" \
+"CMakeFiles/F4C3.dir/F4C3/sources/ImageProcessor.cpp.o"
 
 # External object files for target F4C3
 F4C3_EXTERNAL_OBJECTS =
 
-F4C3: CMakeFiles/F4C3.dir/main.cpp.o
+F4C3: CMakeFiles/F4C3.dir/F4C3/sources/main.cpp.o
+F4C3: CMakeFiles/F4C3.dir/F4C3/sources/Core.cpp.o
+F4C3: CMakeFiles/F4C3.dir/F4C3/sources/StreamManager.cpp.o
+F4C3: CMakeFiles/F4C3.dir/F4C3/sources/ImageProcessor.cpp.o
 F4C3: CMakeFiles/F4C3.dir/build.make
 F4C3: CMakeFiles/F4C3.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/crp/Documents/Face-Capture/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable F4C3"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/crp/Documents/Face-Capture/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable F4C3"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/F4C3.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -99,7 +177,10 @@ CMakeFiles/F4C3.dir/build: F4C3
 
 .PHONY : CMakeFiles/F4C3.dir/build
 
-CMakeFiles/F4C3.dir/requires: CMakeFiles/F4C3.dir/main.cpp.o.requires
+CMakeFiles/F4C3.dir/requires: CMakeFiles/F4C3.dir/F4C3/sources/main.cpp.o.requires
+CMakeFiles/F4C3.dir/requires: CMakeFiles/F4C3.dir/F4C3/sources/Core.cpp.o.requires
+CMakeFiles/F4C3.dir/requires: CMakeFiles/F4C3.dir/F4C3/sources/StreamManager.cpp.o.requires
+CMakeFiles/F4C3.dir/requires: CMakeFiles/F4C3.dir/F4C3/sources/ImageProcessor.cpp.o.requires
 
 .PHONY : CMakeFiles/F4C3.dir/requires
 
