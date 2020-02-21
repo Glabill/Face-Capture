@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/crp/Documents/Face-Capture/build",
+  "command": "/usr/bin/g++-7    -g   -o CMakeFiles/F4C3.dir/main.cpp.o -c /home/crp/Documents/Face-Capture/main.cpp",
+  "file": "/home/crp/Documents/Face-Capture/main.cpp"
+}
+]
